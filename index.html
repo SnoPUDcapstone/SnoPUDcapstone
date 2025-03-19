@@ -5,19 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Data Graph</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            /* Increase the max-width and add height */
+            max-width: 1200px; /* Adjust this value to make it wider */
+            height: 600px; /* Set a specific height */
+            margin: 20px auto; /* Center it with margin */
+        }
+    </style>
 </head>
 <body>
-    <h1>Solar Data for 2024</h1>
-    <canvas id="myChart" width="400" height="200"></canvas>
+    <canvas id="solarChart"></canvas>
+
     <script>
-        // Fetch local JSON data
-        fetch('docs/solar_data_2024.json')
+        // Fetch the data from GitHub URL and create the chart
+        fetch('https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/docs/solar_data_2024.json')
             .then(response => response.json())
             .then(data => {
-                const labels = data.map(item => item["Date and Time"]);
+                // Prepare the data for Chart.js
+                const labels = data.map(item => new Date(item["Date and Time"]).toLocaleTimeString());
                 const values = data.map(item => item["Value (KW)"]);
 
-                const ctx = document.getElementById('myChart').getContext('2d');
+                // Create the chart
+                const ctx = document.getElementById('solarChart').getContext('2d');
                 new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -26,18 +36,13 @@
                             label: 'Solar Power (KW)',
                             data: values,
                             borderColor: 'rgb(75, 192, 192)',
-                            fill: false,
+                            tension: 0.1
                         }]
                     },
                     options: {
                         responsive: true,
                         scales: {
                             x: {
-                                type: 'time',
-                                time: {
-                                    unit: 'hour',
-                                    tooltipFormat: 'll HH:mm',
-                                },
                                 title: {
                                     display: true,
                                     text: 'Time'
@@ -47,13 +52,14 @@
                                 title: {
                                     display: true,
                                     text: 'Power (KW)'
-                                }
+                                },
+                                beginAtZero: true
                             }
                         }
                     }
                 });
             })
-            .catch(err => console.error('Error loading the JSON data: ', err));
+            .catch(error => console.error('Error fetching data:', error));
     </script>
 </body>
 </html>
