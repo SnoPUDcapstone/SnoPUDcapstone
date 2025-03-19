@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Data Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Solar Data for 2024</h1>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+        // Fetch local JSON data
+        fetch('docs/solar_data_2024.json')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(item => item["Date and Time"]);
+                const values = data.map(item => item["Value (KW)"]);
+
+                const ctx = document.getElementById('myChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Solar Power (KW)',
+                            data: values,
+                            borderColor: 'rgb(75, 192, 192)',
+                            fill: false,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'hour',
+                                    tooltipFormat: 'll HH:mm',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Time'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Power (KW)'
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(err => console.error('Error loading the JSON data: ', err));
+    </script>
+</body>
+</html>
