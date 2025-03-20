@@ -1,10 +1,10 @@
 const API_URL = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/solar_data_live.json";
 const API_URL2 = "http://localhost:5555/selecteddate";
 
-const API_URL_30_30 = "http://localhost:5555/30_30";
+const API_URL_30_30 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_30.json";
 const API_URL_30_30selected = "http://localhost:5555/30_30selected";
 
-const API_30_60 = "http://localhost:5555/30_60";
+const API_30_60 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60.json";
 const API_30_60_selected = "http://localhost:5555/30_60selected";
 
 const API_URL_trend = "http://localhost:5555/trend_model";
