@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5555/data";
+const API_URL = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/solar_data_live.json";
 const API_URL2 = "http://localhost:5555/selecteddate";
 
 const API_URL_30_30 = "http://localhost:5555/30_30";
