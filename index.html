@@ -3,63 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Data Graph</title>
+    <title>SnoPUD MicroGrid Analysis</title>
+    <link rel="icon" type="image/jpg" href="resources\UWlogo2.jpg">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        canvas {
-            /* Increase the max-width and add height */
-            max-width: 1200px; /* Adjust this value to make it wider */
-            height: 600px; /* Set a specific height */
-            margin: 20px auto; /* Center it with margin */
-        }
-    </style>
 </head>
 <body>
-    <canvas id="solarChart"></canvas>
+    <div class="top-bar" id="top-bar">
+        <div class="left-text"><a href="index.html" class="headerlink"> Snohomish PUD - Arlington Microgrid Solar Firming Pilot Project Analysis</a></div>
+        <div class="right-text">
+            <a href="about.html" class="headerlink">About </a>
+            <a href="results.html" class="headerlink">Results </a>
+            <a href="documentation.html" class="headerlink"> Documentation </a>
+            <img src="resources\snohomishlogo.png" width="9%" height="9%" />
+            <img src="resources\UWlogo.png" width="5%" height="5%" />
+        </div>
+    </div>
 
-    <script>
-        // Fetch the data from GitHub URL and create the chart
-        fetch('https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/docs/solar_data_2024.json')
-            .then(response => response.json())
-            .then(data => {
-                // Prepare the data for Chart.js
-                const labels = data.map(item => new Date(item["Date and Time"]).toLocaleTimeString());
-                const values = data.map(item => item["Value (KW)"]);
+    <div class="content" id="content">
+        
+        <div class="subheader">
+            <h1>Solar Firming Demonstration</h1>
+        </div>
 
-                // Create the chart
-                const ctx = document.getElementById('solarChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Solar Power (KW)',
-                            data: values,
-                            borderColor: 'rgb(75, 192, 192)',
-                            tension: 0.1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Time'
-                                }
-                            },
-                            y: {
-                                title: {
-                                    display: true,
-                                    text: 'Power (KW)'
-                                },
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
+        <!-- add date selection -->
+        <div class="dashboard">
+            <form id="solarForm">
+                <fieldset>
+                    <legend>Enter a date range to get solar production and consumption data</legend>
+                    <label for="start">Start Date</label>
+                    <input type="date" name="start" placeholder="yyyy-MM-dd" required id="start">
+                    <label for="end">End Date</label>
+                    <input type="date" name="end" placeholder="yyyy-MM-dd" required id="end">
+                    <input id="hours" name="hours" type="hidden" value="T00:00">
+                    <button type="submit" id="solarSubmit">Get Solar Data</button>
+                    <button type="button" id="currentDataButton">Get Current Data</button>
+                </fieldset>
+            </form>
+
+            <button id="toggleSolarButton">Hide Solar Data</button>
+
+            <div id="optionBox">
+                <fieldset>
+                    <div class="option-box selected" data-value="option1">Solar</div>
+                    <div class="option-box" data-value="option2">Battery SOC</div>
+                    <div class="option-box" data-value="option3">Battery KW</div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="dataChart"></canvas>
+        </div>
+
+        <div id="datasetBox">
+            <div id="dataset1" class="dataset-box">30_60_30min</div>
+            <div id="dataset2" class="dataset-box">30_60_1min</div>
+            <div id="dataset6" class="dataset-box">70_60_1min</div>
+            <div id="dataset3" class="dataset-box">Trend</div>
+            <div id="dataset4" class="dataset-box">Proportional</div>
+            <div id="dataset5" class="dataset-box">Averaged</div>
+        </div>
+        <!-- add analitics for currently selected datasets -->
+        <!-- Metrics Box -->
+        <div id="metrics-box">
+            <h3>Key Metrics</h3>
+            <p>Solar: <span id="solar-value">0</span> KWh</p>
+            <p>30_30 --------- RMSE: <span id="dataset1-rmse">0</span> MAE: <span id="dataset1-mae">0</span> MSE: <span id="dataset1-mse">0</span> Battery Cycles: <span id="dataset1-cycles">0</span> Energy Out: <span id="dataset1-energy">0</span> KWh</p>
+            <p>30_60 --------- RMSE: <span id="dataset2-rmse">0</span> MAE: <span id="dataset2-mae">0</span> MSE: <span id="dataset2-mse">0</span> Battery Cycles: <span id="dataset2-cycles">0</span> Energy Out: <span id="dataset2-energy">0</span> KWh</p>
+            <p>30_70 --------- RMSE: <span id="dataset3-rmse">0</span> MAE: <span id="dataset3-mae">0</span> MSE: <span id="dataset3-mse">0</span> Battery Cycles: <span id="dataset3-cycles">0</span> Energy Out: <span id="dataset3-energy">0</span> KWh</p>
+            <p>Trend ---------- RMSE: <span id="dataset4-rmse">0</span> MAE: <span id="dataset4-mae">0</span> MSE: <span id="dataset4-mse">0</span> Battery Cycles: <span id="dataset4-cycles">0</span> Energy Out: <span id="dataset4-energy">0</span> KWh</p>
+            <p>Proportional -- RMSE: <span id="dataset5-rmse">0</span> MAE: <span id="dataset5-mae">0</span> MSE: <span id="dataset5-mse">0</span> Battery Cycles: <span id="dataset5-cycles">0</span> Energy Out: <span id="dataset5-energy">0</span> KWh</p>
+            <p>Averaged ------ RMSE: <span id="dataset6-rmse">0</span> MAE: <span id="dataset6-mae">0</span> MSE: <span id="dataset6-mse">0</span> Battery Cycles: <span id="dataset6-cycles">0</span> Energy Out: <span id="dataset6-energy">0</span> KWh</p>
+        </div>
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
