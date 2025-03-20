@@ -7,16 +7,16 @@ const API_URL_30_30selected = "http://localhost:5555/30_30selected";
 const API_30_60 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60.json";
 const API_30_60_selected = "http://localhost:5555/30_60selected";
 
-const API_URL_trend = "http://localhost:5555/trend_model";
+const API_URL_trend = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/trend.json";
 const API_URL_trend_selected = "http://localhost:5555/trend_selected";
 
-const API_URL_proportional = "http://localhost:5555/proportional";
+const API_URL_proportional = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/proportional.json";
 const API_URL_proportional_selected = "http://localhost:5555/proportional_selected";
 
-const API_URL_averaged = "http://localhost:5555/averaged";
+const API_URL_averaged = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/averaged.json";
 const API_URL_averaged_selected = "http://localhost:5555/averagedselected";
 
-const API_URL_70_60 = "http://localhost:5555/70_60";
+const API_URL_70_60 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_70_60.json";
 const API_URL_70_60_selected = "http://localhost:5555/70_60selected";
 
 // Battery SOC APIs
