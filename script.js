@@ -39,22 +39,22 @@ const API_URL_70_60_soc = "http://localhost:5555/70_60/soc";
 const API_URL_70_60_selected_soc = "http://localhost:5555/70_60selected/soc";
 
 // Battery kW usage APIs
-const API_URL_30_30_batt = "http://localhost:5555/30_30/batt";
+const API_URL_30_30_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_30_battery.json";
 const API_URL_30_30selected_batt = "http://localhost:5555/30_30selected/batt";
 
-const API_30_60_batt = "http://localhost:5555/30_60/batt";
+const API_30_60_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60_battery.json";
 const API_30_60_selected_batt = "http://localhost:5555/30_60selected/batt";
 
-const API_URL_trend_batt = "http://localhost:5555/trend_model/batt";
+const API_URL_trend_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/trend_battery.json";
 const API_URL_trend_selected_batt = "http://localhost:5555/trend_selected/batt";
 
-const API_URL_proportional_batt = "http://localhost:5555/proportional/batt";
+const API_URL_proportional_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/proportional_battery.json";
 const API_URL_proportional_selected_batt = "http://localhost:5555/proportional_selected/batt";
 
-const API_URL_averaged_batt = "http://localhost:5555/averaged/batt";
+const API_URL_averaged_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/averaged_battery.json";
 const API_URL_averaged_selected_batt = "http://localhost:5555/averagedselected/batt";
 
-const API_URL_70_60_batt = "http://localhost:5555/70_60/batt";
+const API_URL_70_60_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_70_60_battery.json";
 const API_URL_70_60_selected_batt = "http://localhost:5555/70_60selected/batt";
 
 // Metrics API
