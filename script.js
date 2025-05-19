@@ -58,7 +58,7 @@ const API_URL_70_60_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pag
 const API_URL_70_60_selected_batt = "http://localhost:5555/70_60selected/batt";
 
 // Metrics API
-const API_URL_METRICS = "http://localhost:5555/metrics";
+const API_URL_METRICS = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/metrics.json";
 
 // Function to get appropriate endpoints based on data type
 function getEndpoints(dataType) {
