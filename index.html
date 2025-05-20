@@ -28,19 +28,12 @@
 
         <!-- add date selection -->
         <div class="dashboard">
-            <form id="solarForm">
-                <fieldset>
-                    <legend>Enter a date range to get solar production and consumption data</legend>
-                    <label for="start">Start Date</label>
-                    <input type="date" name="start" placeholder="yyyy-MM-dd" required id="start">
-                    <label for="end">End Date</label>
-                    <input type="date" name="end" placeholder="yyyy-MM-dd" required id="end">
-                    <input id="hours" name="hours" type="hidden" value="T00:00">
-                    <button type="submit" id="solarSubmit">Get Solar Data</button>
-                    <button type="button" id="currentDataButton">Get Current Data</button>
-                </fieldset>
-            </form>
-
+            <div id="solarButtons" class="solar-button-group">
+                <button class="solar-btn selected" data-set="current">Current Solar</button>
+                <button class="solar-btn" data-set="last_week">Last Week Solar</button>
+                <button class="solar-btn" data-set="winter_2024">Winter 2024</button>
+                <button class="solar-btn" data-set="summer_2024">Summer 2024</button>
+            </div>
             <button id="toggleSolarButton">Hide Solar Data</button>
 
             <div id="optionBox">
