@@ -1,62 +1,24 @@
 const API_URL = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/solar_data_live.json";
-const API_URL2 = "http://localhost:5555/selecteddate";
-
 const API_URL_30_30 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_30.json";
-const API_URL_30_30selected = "http://localhost:5555/30_30selected";
-
 const API_30_60 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60.json";
-const API_30_60_selected = "http://localhost:5555/30_60selected";
-
 const API_URL_trend = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/trend.json";
-const API_URL_trend_selected = "http://localhost:5555/trend_selected";
-
 const API_URL_proportional = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/proportional.json";
-const API_URL_proportional_selected = "http://localhost:5555/proportional_selected";
-
 const API_URL_averaged = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/averaged.json";
-const API_URL_averaged_selected = "http://localhost:5555/averagedselected";
-
 const API_URL_70_60 = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_70_60.json";
-const API_URL_70_60_selected = "http://localhost:5555/70_60selected";
-
 // Battery SOC APIs
 const API_URL_30_30_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_30_soc.json";
-const API_URL_30_30selected_soc = "http://localhost:5555/30_30selected/soc";
-
 const API_30_60_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60_soc.json";
-const API_30_60_selected_soc = "http://localhost:5555/30_60selected/soc";
-
 const API_URL_trend_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/trend_soc.json";
-const API_URL_trend_selected_soc = "http://localhost:5555/trend_selected/soc";
-
 const API_URL_proportional_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/proportional_soc.json";
-const API_URL_proportional_selected_soc = "http://localhost:5555/proportional_selected/soc";
-
 const API_URL_averaged_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/averaged_soc.json";
-const API_URL_averaged_selected_soc = "http://localhost:5555/averagedselected/soc";
-
 const API_URL_70_60_soc = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_70_60_soc.json";
-const API_URL_70_60_selected_soc = "http://localhost:5555/70_60selected/soc";
-
 // Battery kW usage APIs
 const API_URL_30_30_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_30_battery.json";
-const API_URL_30_30selected_batt = "http://localhost:5555/30_30selected/batt";
-
 const API_30_60_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_30_60_battery.json";
-const API_30_60_selected_batt = "http://localhost:5555/30_60selected/batt";
-
 const API_URL_trend_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/trend_battery.json";
-const API_URL_trend_selected_batt = "http://localhost:5555/trend_selected/batt";
-
 const API_URL_proportional_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/proportional_battery.json";
-const API_URL_proportional_selected_batt = "http://localhost:5555/proportional_selected/batt";
-
 const API_URL_averaged_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/averaged_battery.json";
-const API_URL_averaged_selected_batt = "http://localhost:5555/averagedselected/batt";
-
 const API_URL_70_60_batt = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/per_70_60_battery.json";
-const API_URL_70_60_selected_batt = "http://localhost:5555/70_60selected/batt";
-
 // Metrics API
 const API_URL_METRICS = "https://raw.githubusercontent.com/SnoPUDcapstone/pages-test/refs/heads/main/day_data/metrics.json";
 
